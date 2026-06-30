@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <style>
+    @keyframes fadeup { from { transform: translateY(12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  </style>
+</helmet>
+<div style="min-height:100%; background:#F1F0ED; padding:64px 56px 90px; box-sizing:border-box; font-family:-apple-system, 'Hiragino Sans', system-ui, sans-serif; color:#16161A;">
+
+  <section style="max-width:880px; margin:0 auto 52px;">
+    <div style="font-size:12px; font-weight:800; letter-spacing:0.16em; color:#4F46E5; margin-bottom:14px;">COUNTLENS ・ 試作プロトタイプ</div>
+    <h1 style="font-size:42px; line-height:1.1; font-weight:760; letter-spacing:-0.035em; margin:0 0 16px;">写真から物体を検出して<br>数量を計測するアプリ</h1>
+    <p style="font-size:16.5px; line-height:1.6; color:#5C5C66; margin:0 0 6px; max-width:620px;">撮影もしくは写真を読み込むと、AIが対象物を自動検出します。数えたい対象をチェックで選び、手動で追加・削除して補正、結果はExcelに保存できます。下の2案はどちらも実際に動きます ―「サンプルで試す」から検出を体験してください。</p>
+    <p style="font-size:13.5px; line-height:1.6; color:#9A9AA2; margin:14px 0 0;">フロー・トーン・検出結果の見せ方・計測操作の4軸で2方向を比較しています。気になる箇所は <strong style="color:#4F46E5;">1a</strong> / <strong style="color:#4F46E5;">1b</strong> の番号で指定してください。</p>
+  </section>
+
+  <div style="display:flex; gap:48px; justify-content:center; flex-wrap:wrap; align-items:flex-start;">
+
+    <div id="1a" style="width:402px; animation:fadeup .5s ease both;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+        <span style="background:#16161A; color:#fff; font-size:13px; font-weight:800; padding:4px 11px; border-radius:999px;">1a</span>
+        <span style="font-size:18px; font-weight:720; letter-spacing:-0.02em;">ガイド型 ・ ライト</span>
+      </div>
+      <p style="font-size:13.5px; line-height:1.55; color:#6A6A73; margin:0 0 12px; min-height:42px;">撮影 → 検出 → 選択 → 計測の順に1画面ずつ案内。明るく整ったトーンで、ボックスにはラベルを表示。落ち着いて確認しながら進められます。</p>
+      <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:20px;">
+        <span style="font-size:11.5px; font-weight:650; color:#4F46E5; background:#4F46E512; padding:5px 10px; border-radius:8px;">ステップ式フロー</span>
+        <span style="font-size:11.5px; font-weight:650; color:#4F46E5; background:#4F46E512; padding:5px 10px; border-radius:8px;">ラベル付きボックス</span>
+        <span style="font-size:11.5px; font-weight:650; color:#4F46E5; background:#4F46E512; padding:5px 10px; border-radius:8px;">チェックで選択</span>
+      </div>
+      <dc-import name="CounterApp" variant="step" accent="#4F46E5" hint-size="402px,874px"></dc-import>
+    </div>
+
+    <div id="1b" style="width:402px; animation:fadeup .5s ease .08s both;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+        <span style="background:#16161A; color:#fff; font-size:13px; font-weight:800; padding:4px 11px; border-radius:999px;">1b</span>
+        <span style="font-size:18px; font-weight:720; letter-spacing:-0.02em;">フォーカス型 ・ ダーク</span>
+      </div>
+      <p style="font-size:13.5px; line-height:1.55; color:#6A6A73; margin:0 0 12px; min-height:42px;">検出後はすべて1画面で完結。写真が主役のダークなトーンで、ボックスは番号バッジ表示。選択も補正もその場で素早く操作できます。</p>
+      <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:20px;">
+        <span style="font-size:11.5px; font-weight:650; color:#1F9D62; background:#34D39920; padding:5px 10px; border-radius:8px;">ワンビュー完結</span>
+        <span style="font-size:11.5px; font-weight:650; color:#1F9D62; background:#34D39920; padding:5px 10px; border-radius:8px;">番号バッジ</span>
+        <span style="font-size:11.5px; font-weight:650; color:#1F9D62; background:#34D39920; padding:5px 10px; border-radius:8px;">インライン補正</span>
+      </div>
+      <dc-import name="CounterApp" variant="single" accent="#34D399" hint-size="402px,874px"></dc-import>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
